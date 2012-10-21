@@ -1,9 +1,30 @@
 Phxer::Application.routes.draw do
+  #get "databases/new"
+  #get "databases/create"
+
+  #get "databases/show"
+
+  #get "databases/edit"
+
+  #get "databases/update"
+
+  #get "databases/index"
+
   get "static_pages/home"
 
   get "static_pages/help"
 
-  match '/', to: 'static_pages#home'
+  resources :databases do
+    resources :tables
+  end
+resources :tables
+
+  #match '/', to: 'static_pages#home'
+  #root to: 'static_pages#home'
+  match '/', to: 'databases#index'
+  root to: 'databases#index'
+  
+  match '/help',    to: 'static_pages#help'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

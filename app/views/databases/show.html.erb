@@ -1,0 +1,88 @@
+<h1>Database Status</h1>
+
+
+
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Database Name</th>
+                  <th>Project</th>
+                  <th>Desc</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="success">
+                  <td><%= @databases.id =%> </td>
+                  <td><%= @databases.db_name =%> </td>
+                  <td><%= @databases.db_project =%> </td>
+                  <td><%= @databases.updated_at =%> </td>
+                </tr>
+                <tr class="error">
+                  <td>2</td>
+                  <td>TB - Monthly</td>
+                  <td>02/04/2012</td>
+                  <td>Declined</td>
+                </tr>
+                <tr class="warning">
+                  <td>3</td>
+                  <td>TB - Monthly</td>
+                  <td>03/04/2012</td>
+                  <td>Pending</td>
+                </tr>
+                <tr class="info" >
+                  <td>4</td>
+                  <td>TB - Monthly</td>
+                  <td>04/04/2012</td>
+                  <td>Call in to confirm</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+<h2>Table List:</h2>
+<div class="bs-docs-example">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Table Name</th>
+                  <th>Table Desc</th>
+                  <th>Last modify change</th>
+                </tr>
+              </thead>
+              <tbody>
+<% @databases.tables.each do |table| %>
+                <tr class="info">
+                  <td><%= table.id =%> </td>
+                  <td><%= link_to table.table_name, table %></td>
+                  
+                  <td><%= table.table_desc =%> </td>
+                  <td><%= table.updated_at =%> </td>
+                </tr>
+<% end %>
+              </tbody>
+            </table>
+</div>
+
+
+ 
+
+<h2>Add a table:</h2>
+<div class="row">
+  <div class="span6 offset3">
+<%= form_for([@databases, @databases.tables.build]) do |f| %>
+
+      <%= f.label :table_name %>
+      <%= f.text_field :table_name %>
+
+      <%= f.label :table_desc %>
+      <%= f.text_area :table_desc, "rows" => 3 %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+  </div>
+    </div>
