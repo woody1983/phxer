@@ -7,6 +7,7 @@
                   <th>Table Name</th>
                   <th>Desc</th>
                   <th>Last modify change</th>
+                  <th>Modify or Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -15,10 +16,42 @@
                   <td><%= @tables.table_name =%> </td>
                   <td><%= @tables.table_desc =%> </td>
                   <td><%= @tables.updated_at =%> </td>
+                 <td><%= link_to 'Edit', edit_table_path(@tables) %> / <%= link_to 'Destroy', @tables, :confirm => 'Are you sure?',:method => :delete %></td>
+                </tr>
+              </tbody>
+
+              <thead>
+                <tr>
+                  <th><i class="icon-refresh"></i></th>
+                  <th>Circle info</th>
+                  <th>Sync type</th>
+                  <th>Last modify change</th>
+                  <th>Modify or Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="circle">
+                <td>1</td>
+                <td>Pixos2</td>
+                <td>Kettle and ESB</td>
+                <td>2012-10-21 22:19:09 UTC</td>
+                <td><%= link_to 'Edit', edit_table_path(@tables) %> / <%= link_to 'Destroy', @tables, :confirm => 'Are you sure?',:method => :delete %></td>
                 </tr>
 
+                <tr class="circle">
+                <td>2</td>
+                <td>OnlineBooking2</td>
+                <td>Kettle</td>
+                <td>2012-10-21 22:19:09 UTC</td>
+                <td><%= link_to 'Edit', edit_table_path(@tables) %> / <%= link_to 'Destroy', @tables, :confirm => 'Are you sure?',:method => :delete %></td>
+                </tr>
               </tbody>
+
             </table>
+
+
+ 
+
 
 <h2>Column List:</h2>
 <div class="bs-docs-example">

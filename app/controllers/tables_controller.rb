@@ -19,6 +19,28 @@ def create
   end
  end
 
+ def edit
+    @tables = Table.find(params[:id])
+ end
+
+ def update
+    @tables = Table.find(params[:id])
+    if @tables.update_attributes(params[:table])
+      flash[:success] = "Table updated"
+      redirect_to @tables
+    else
+      render 'edit'
+    end         
+  end
+
+  def destroy
+  @tables = Table.find(params[:id])
+  @databases = Database.find_by_id(@tables.database_id)
+  @tables.destroy
+  
+  redirect_to database_path(@databases) 
+  end
+
 end
 
 

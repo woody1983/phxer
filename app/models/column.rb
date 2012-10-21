@@ -3,8 +3,8 @@
 # Table name: columns
 #
 #  id          :integer          not null, primary key
-#  columb_name :string(255)
-#  columb_type :string(255)
+#  column_name :string(255)
+#  column_type :string(255)
 #  column_size :string(255)
 #  column_desc :string(255)
 #  table_id    :integer

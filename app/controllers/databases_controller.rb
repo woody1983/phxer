@@ -14,7 +14,9 @@ class DatabasesController < ApplicationController
 
   def show
     @databases = Database.find(params[:id])
- 
+    
+    @databases_list = Database.all
+
   respond_to do |format|
     format.html  # show.html.erb
     format.json  { render :json => @databases }
