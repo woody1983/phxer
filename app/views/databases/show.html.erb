@@ -3,7 +3,7 @@
 
 
 
-            <table class="table">
+            <table class="table table-striped">
               <thead>
                 <tr>
                   <th>#</th>
@@ -14,7 +14,7 @@
               </thead>
               <tbody>
                 <tr class="success">
-                  <td><%= @databases.id =%> </td>
+                  <td><i class="icon-signal"></i></td>
                   <td><%= @databases.db_name =%> </td>
                   <td><%= @databases.db_project =%> </td>
                   <td><%= @databases.updated_at =%> </td>
@@ -42,8 +42,8 @@
 
 
 <h2>Table List:</h2>
-<div class="bs-docs-example">
-            <table class="table">
+
+            <table class="table table-striped">
               <thead>
                 <tr>
                   <th>Id</th>
@@ -54,7 +54,7 @@
               </thead>
               <tbody>
 <% @databases.tables.each do |table| %>
-                <tr class="info">
+                <tr >
                   <td><%= table.id =%> </td>
                   <td><%= link_to table.table_name, table %></td>
                   
@@ -64,7 +64,7 @@
 <% end %>
               </tbody>
             </table>
-</div>
+
 
 
  

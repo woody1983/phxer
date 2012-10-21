@@ -11,6 +11,7 @@
 #
 
 class Table < ActiveRecord::Base
+  before_save { |table| table.table_name = table.table_name.upcase }
   belongs_to :database
   attr_accessible :table_desc, :table_name
   has_many :columns

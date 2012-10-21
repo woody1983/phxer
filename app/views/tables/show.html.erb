@@ -1,9 +1,9 @@
-<h1>Table Infomation</h1>
+<h1>Table Information</h1>
 
             <table class="table">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th><i class="icon-signal"></i></th>
                   <th>Table Name</th>
                   <th>Desc</th>
                   <th>Last modify change</th>
@@ -22,18 +22,19 @@
 
 <h2>Column List:</h2>
 <div class="bs-docs-example">
-            <table class="table">
+            <table class="table table-striped">
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Column Name</th><th>Column Type</th>
-                  <th>Column Desc</th>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Desc</th>
                   <th>Last modify change</th>
                 </tr>
               </thead>
               <tbody>
 <% @tables.columns.each do |column| %>
-                <tr class="info">
+                <tr>
                   <td><%= column.id =%> </td>
                   <td><%= column.column_name =%></td>
                   <td><%= column.column_type =%></td>

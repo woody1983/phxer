@@ -13,6 +13,7 @@
 #
 
 class Database < ActiveRecord::Base
+  before_save { |database| database.db_name = database.db_name.upcase }
   attr_accessible :db_desc, :db_name, :db_pm, :db_project, :db_user
   has_many :tables
 end
