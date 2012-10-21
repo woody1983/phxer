@@ -17,7 +17,12 @@ Phxer::Application.routes.draw do
   resources :databases do
     resources :tables
   end
-resources :tables
+
+  resources :tables do
+    resources :columns
+  end
+
+  resources :columns
 
   #match '/', to: 'static_pages#home'
   #root to: 'static_pages#home'
