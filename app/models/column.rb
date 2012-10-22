@@ -18,5 +18,5 @@
 class Column < ActiveRecord::Base
   before_save { |column| column.column_name = column.column_name.upcase }
   belongs_to :table
-  attr_accessible :column_name, :column_type, :column_desc, :column_size
+  attr_accessible :column_name, :column_type, :column_desc, :column_size, :column_null, :column_key, :column_default
 end

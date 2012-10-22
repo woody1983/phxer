@@ -15,4 +15,5 @@ class Table < ActiveRecord::Base
   belongs_to :database
   attr_accessible :table_desc, :table_name
   has_many :columns
+  has_many :circles
 end

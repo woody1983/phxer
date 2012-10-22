@@ -13,6 +13,7 @@ def create
 
  def show
  	@tables = Table.find(params[:id])
+  @databases = Database.all
     respond_to do |format|
     format.html  # show.html.erb
     format.json  { render :json => @tables }

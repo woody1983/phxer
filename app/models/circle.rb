@@ -11,6 +11,7 @@
 #
 
 class Circle < ActiveRecord::Base
-  belongs_to :table
+  #belongs_to :database
+  before_save { |circle| circle.circle_desc = circle.circle_desc.strip }
   attr_accessible :circle_desc, :database_id, :table_id
 end

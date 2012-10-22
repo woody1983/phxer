@@ -16,13 +16,16 @@ Phxer::Application.routes.draw do
 
   resources :databases do
     resources :tables
+    resources :circles
   end
 
   resources :tables do
     resources :columns
+    resources :circles
   end
 
   resources :columns
+  resources :circles
 
   #match '/', to: 'static_pages#home'
   #root to: 'static_pages#home'

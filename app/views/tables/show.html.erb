@@ -30,21 +30,17 @@
                 </tr>
               </thead>
               <tbody>
+<% @tables.circles.each do |circle| %>
                 <tr class="circle">
-                <td>1</td>
-                <td>Pixos2</td>
-                <td>Kettle and ESB</td>
-                <td>2012-10-21 22:19:09 UTC</td>
-                <td><%= link_to 'Edit', edit_table_path(@tables) %> / <%= link_to 'Destroy', @tables, :confirm => 'Are you sure?',:method => :delete %></td>
-                </tr>
 
-                <tr class="circle">
-                <td>2</td>
-                <td>OnlineBooking2</td>
-                <td>Kettle</td>
-                <td>2012-10-21 22:19:09 UTC</td>
-                <td><%= link_to 'Edit', edit_table_path(@tables) %> / <%= link_to 'Destroy', @tables, :confirm => 'Are you sure?',:method => :delete %></td>
+                  <% databases_circle = Database.find(circle.database_id)  %>
+                  <td><%= circle.id =%> </td>
+                  <td><%= databases_circle.db_name   =%></td>
+                  <td><%= circle.circle_desc =%></td>
+                  <td><%= circle.updated_at =%></td>
+                <td><%= link_to 'Edit', edit_table_path(@tables) %> / <%= link_to 'Destroy', @tables, :confirm => 'Are you sure?',:method => :delete %>
                 </tr>
+<% end %>
               </tbody>
 
             </table>
@@ -61,6 +57,9 @@
                   <th>Id</th>
                   <th>Name</th>
                   <th>Type</th>
+                  <th>Null</th>
+                  <th>Key</th>
+                  <th>Default</th>
                   <th>Desc</th>
                   <th>Last modify change</th>
                 </tr>
@@ -71,6 +70,9 @@
                   <td><%= column.id =%> </td>
                   <td><%= column.column_name =%></td>
                   <td><%= column.column_type =%></td>
+                  <td><%= column.column_null =%></td>
+                  <td><%= column.column_key =%></td>
+                  <td><%= column.column_default =%></td>
                   <td><%= column.column_desc =%> </td>
                   <td><%= column.updated_at =%> </td>
                 </tr>
@@ -78,6 +80,33 @@
               </tbody>
             </table>
 </div>
+
+
+
+
+<h2>Create Circle:</h2>
+<div class="row">
+  <div class="span6 offset3">
+
+    <%= form_for([@tables, @tables.circles.build]) do |fc| %>
+      <%= fc.label :circle_desc %>
+      <%= fc.text_field :circle_desc %>
+<select id="circle_database_id" name="circle[database_id]" >
+  <% @databases.each do |database| %>
+                <option value=<%= database.id =%>><%= database.db_name =%></option>
+<% end %>
+</select>
+
+<%= hidden_field_tag(:table_id, @tables.id) %>
+
+  <div class="actions">
+    <%= fc.submit %>
+  </div>
+
+<% end %>
+</div>
+    </div>
+
 
 <h2>Add a Column:</h2>
 <div class="row">
@@ -88,29 +117,32 @@
       <%= f.text_field :column_name %>
 
 <%= f.label :column_type %>     
+<%= f.text_field :column_type %>
 
-
-
+<!-- 
 <select id="column_column_type" name="column[column_type]" >
-
                 <option value="int">Int</option>
-
                 <option value="varchar">Varchar</option>
-
                 <option value="float">Float</option>
-
                 <option value="enum">Enum</option>
-
                 <option value="date">Date</option>
-
                 <option value="time">Time</option>
-
                 <option value="timestamp">DateTime</option>
-
 </select>
+-->
 
       <%= f.label :column_size_or_value %>
       <%= f.text_field :column_size %>
+
+      <%= f.label :column_if_null %>
+      <%= f.text_field :column_null %>
+
+      <%= f.label :column_key %>
+      <%= f.text_field :column_key %>
+
+      <%= f.label :column_default %>
+      <%= f.text_field :column_default %>
+
       <%= f.label :column_desc %>
       <%= f.text_area :column_desc, "rows" => 3 %>
 
