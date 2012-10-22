@@ -30,12 +30,12 @@
                 </tr>
               </thead>
               <tbody>
-<% @tables.circles.each do |circle| %>
+                <% @tables.circles.each do |circle| %>
                 <tr class="circle">
 
                   <% databases_circle = Database.find(circle.database_id)  %>
                   <td><%= circle.id =%> </td>
-                  <td><%= databases_circle.db_name   =%></td>
+                  <td><%= link_to databases_circle.db_name , databases_circle =%></td>
                   <td><%= circle.circle_desc =%></td>
                   <td><%= circle.updated_at =%></td>
                 <td><%= link_to 'Edit', edit_table_path(@tables) %> / <%= link_to 'Destroy', @tables, :confirm => 'Are you sure?',:method => :delete %>
@@ -87,22 +87,21 @@
 <h2>Create Circle:</h2>
 <div class="row">
   <div class="span6 offset3">
-
     <%= form_for([@tables, @tables.circles.build]) do |fc| %>
       <%= fc.label :circle_desc %>
       <%= fc.text_field :circle_desc %>
+      <%= fc.label :circle_source, @tables.database_id %>
+      <%= hidden_field_tag(:circle_source, @tables.database_id) %>
 <select id="circle_database_id" name="circle[database_id]" >
-  <% @databases.each do |database| %>
-                <option value=<%= database.id =%>><%= database.db_name =%></option>
-<% end %>
+                <% @databases.each do |database| %>
+                  <option value=<%= database.id =%>><%= database.db_name =%></option>
+                <% end %>
 </select>
 
-<%= hidden_field_tag(:table_id, @tables.id) %>
-
-  <div class="actions">
+<% hidden_field_tag(:table_id, @tables.id) %>
+<div class="actions">
     <%= fc.submit %>
   </div>
-
 <% end %>
 </div>
     </div>

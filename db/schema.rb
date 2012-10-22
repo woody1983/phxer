@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022080622) do
+ActiveRecord::Schema.define(:version => 20121022155457) do
 
   create_table "circles", :force => true do |t|
     t.integer  "database_id"
     t.integer  "table_id"
     t.string   "circle_desc"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "circle_source"
   end
 
   add_index "circles", ["table_id"], :name => "index_circles_on_table_id"
