@@ -90,15 +90,15 @@
     <%= form_for([@tables, @tables.circles.build]) do |fc| %>
       <%= fc.label :circle_desc %>
       <%= fc.text_field :circle_desc %>
-      <%= fc.label :circle_source, @tables.database_id %>
-      <%= hidden_field_tag(:circle_source, @tables.database_id) %>
+
 <select id="circle_database_id" name="circle[database_id]" >
-                <% @databases.each do |database| %>
-                  <option value=<%= database.id =%>><%= database.db_name =%></option>
+                <% @databases.each do |databases| %>
+                  <option value=<%= databases.id =%>><%= databases.db_name =%></option>
                 <% end %>
 </select>
 
-<% hidden_field_tag(:table_id, @tables.id) %>
+<%= hidden_field_tag("circle[circle_source]", @tables.database_id) %>
+<%= hidden_field_tag(:table_id, @tables.id) %>
 <div class="actions">
     <%= fc.submit %>
   </div>

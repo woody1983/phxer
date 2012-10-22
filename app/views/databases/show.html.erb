@@ -72,6 +72,7 @@
                 <tr>
                   <th>Id</th>
                   <th>Table Name</th>
+                  <th>Data Source</th>
                   <th>Table Desc</th>
                   <th>Last modify change</th>
                 </tr>
@@ -82,7 +83,8 @@
                   <td><%= circle.id =%> </td>
                   <% tables_circle = Table.find(circle.table_id)  %>
                   <td><%= link_to tables_circle.table_name, tables_circle %></td>
-                  
+                  <% databases_circle = Database.find(circle.circle_source)  %>
+                  <td><%= link_to databases_circle.db_name, databases_circle %></td>
                   <td><%= circle.circle_desc =%> </td>
                   <td><%= circle.updated_at =%> </td>
                 </tr>
