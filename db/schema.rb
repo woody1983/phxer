@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121021150625) do
+ActiveRecord::Schema.define(:version => 20121022080622) do
 
   create_table "circles", :force => true do |t|
     t.integer  "database_id"
@@ -29,8 +29,11 @@ ActiveRecord::Schema.define(:version => 20121021150625) do
     t.string   "column_size"
     t.string   "column_desc"
     t.integer  "table_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "column_null"
+    t.string   "column_key"
+    t.string   "column_default"
   end
 
   add_index "columns", ["table_id"], :name => "index_columns_on_table_id"

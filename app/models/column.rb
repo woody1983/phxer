@@ -2,14 +2,17 @@
 #
 # Table name: columns
 #
-#  id          :integer          not null, primary key
-#  column_name :string(255)
-#  column_type :string(255)
-#  column_size :string(255)
-#  column_desc :string(255)
-#  table_id    :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id             :integer          not null, primary key
+#  column_name    :string(255)
+#  column_type    :string(255)
+#  column_size    :string(255)
+#  column_desc    :string(255)
+#  table_id       :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  column_null    :string(255)
+#  column_key     :string(255)
+#  column_default :string(255)
 #
 
 class Column < ActiveRecord::Base
