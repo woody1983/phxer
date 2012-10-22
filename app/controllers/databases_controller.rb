@@ -6,7 +6,8 @@ class DatabasesController < ApplicationController
   def create
     @databases_create = Database.new(params[:database])
     if @databases_create.save
-      render 'index'
+       @databases = Database.all
+       redirect_to @databases
     else
       render 'new'
     end

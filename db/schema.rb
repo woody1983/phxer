@@ -55,15 +55,6 @@ ActiveRecord::Schema.define(:version => 20121021150625) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "dbtables", :force => true do |t|
-    t.integer  "database_id"
-    t.integer  "table_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "dbtables", ["table_id"], :name => "index_dbtables_on_table_id"
-
   create_table "tables", :force => true do |t|
     t.string   "table_name"
     t.string   "table_desc"
