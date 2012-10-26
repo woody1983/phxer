@@ -44,7 +44,7 @@
               </tbody>
 
             </table>
-
+<a class="btn btn-primary btn-mini" id="backdroptrue" data-toggle="modal" href="#modalbackdroptrue" >Create Circle</a> <br />
 
  
 
@@ -81,6 +81,52 @@
             </table>
 </div>
 
+<!-- >
+modal test
+<-->
+
+  
+<!-- 是我,撑场面的注释条君 -->
+<div id="modalbackdroptrue" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modalbackdroptrue" >&times;</a>
+              <h3>是我,撑场面的注释条君</h3>
+            </div>
+            <div class="modal-body">
+              
+<%= form_for([@tables, @tables.circles.build]) do |fc| %>
+      <%= fc.label :circle_desc %>
+      <%= fc.text_field :circle_desc %>
+
+<select id="circle_database_id" name="circle[database_id]" >
+                <% @databases.each do |databases| %>
+                  <option value=<%= databases.id =%>><%= databases.db_name =%></option>
+                <% end %>
+</select>
+<span class="label label-info">Info:这里讲创建表和表之间的同步关系。</span>
+<%= hidden_field_tag("circle[circle_source]", @tables.database_id) %>
+<%= hidden_field_tag(:table_id, @tables.id) %>
+
+</div>
+
+            <div class="modal-footer">
+              <a href="#" class="btn " data-dismiss="modal" >colse</a>
+              <%= fc.submit "Create Circle", class: "btn btn-primary" %>
+             <!-- <a href="#" class="btn btn-primary"   >保存更改</a> -->
+            </div>
+            <% end %>   
+</div><!-- 遥相呼应的注释君 1 -->
+      
+          
+
+
+
+
+
+
+
+
+<!-- 还是我,撑场面的注释条君，划胖吗？ -->
 
 
 
