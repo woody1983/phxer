@@ -41,6 +41,86 @@
             </table>
 
 
+<!-- HeiHei -->
+
+
+
+<ul id="myTab" class="nav nav-tabs"> 
+              <li class="active"><a href="#home" data-toggle="tab">Home</a></li> 
+              <li><a href="#profile" data-toggle="tab">Profile</a></li> 
+              <li class="dropdown"> 
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Status <b class="caret"></b></a> 
+                <ul class="dropdown-menu"> 
+                  <li><a href="#dropdown1" data-toggle="tab">@PHXSHA</a></li> 
+                  <li><a href="#dropdown2" data-toggle="tab">@PILSHA</a></li> 
+                </ul> 
+              </li> 
+</ul> 
+
+<div id="myTabContent" class="tab-content"> 
+              <div class="tab-pane fade in active" id="home"> 
+              
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Database Name</th>
+                  <th>Project</th>
+                  <th>Last modify change</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="success">
+                  <td><i class="icon-signal"></i></td>
+                  <td><%= @databases.db_name =%> </td>
+                  <td><%= @databases.db_project =%> </td>
+                  <td><%= @databases.updated_at =%> </td>
+                </tr>
+                <tr class="error">
+                  <td>2</td>
+                  <td>TB - Monthly</td>
+                  <td>02/04/2012</td>
+                  <td>Declined</td>
+                </tr>
+                <tr class="warning">
+                  <td>3</td>
+                  <td>TB - Monthly</td>
+                  <td>03/04/2012</td>
+                  <td>Pending</td>
+                </tr>
+                <tr class="info" >
+                  <td>4</td>
+                  <td>TB - Monthly</td>
+                  <td>04/04/2012</td>
+                  <td>Call in to confirm</td>
+                </tr>
+              </tbody>
+            </table>
+
+</div> 
+              <div class="tab-pane fade" id="profile"> 
+                <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p> 
+              </div> 
+              <div class="tab-pane fade" id="dropdown1"> 
+                <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p> 
+              </div> 
+              <div class="tab-pane fade" id="dropdown2"> 
+                <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p> 
+              </div> 
+            </div> 
+
+<!-- HeiHei -->
+
+<div class="popover top"> 
+            <div class="arrow"></div> 
+            <h3 class="popover-title">Asis IT.DBA Group.</h3> 
+            <div class="popover-content"> 
+              <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p> 
+</div> 
+</div> 
+
+<a href="#" rel="tooltip" title="first tooltip">.......</a>
+
 <h2>Table List:</h2>
 
             <table class="table table-striped">
@@ -91,7 +171,32 @@
 <% end %>
               </tbody>
             </table>
+<a class="btn btn-primary btn-mini" id="backdroptrue" data-toggle="modal" href="#modalbackdroptrue" >Create Circle</a> <br />
 
+<div id="modalbackdroptrue" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modalbackdroptrue" >&times;</a>
+              <h3>..,........</h3>
+            </div>
+            <div class="modal-body">
+              
+<%= form_for([@databases, @databases.tables.build]) do |f| %>
+
+      <%= f.label :table_name %>
+      <%= f.text_field :table_name %>
+
+      <%= f.label :table_desc %>
+      <%= f.text_area :table_desc, "rows" => 3 %>
+
+            <div class="modal-footer">
+              <a href="#" class="btn " data-dismiss="modal" >colse</a>
+              <%= f.submit "Create Table", class: "btn btn-primary" %>
+             <!-- <a href="#" class="btn btn-primary"   >....</a> -->
+            </div>
+            <% end %>   
+</div><!-- ........ 1 -->
+
+            </div>
 
 
 <h2>Import Table:</h2>
